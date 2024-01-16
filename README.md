@@ -15,7 +15,7 @@ The motivation behind this assignment was to use what we have learned so far to 
 
 In order to use the password generate please visit the following link.
 
-
+https://dannym15.github.io/JJK/
 
 The tool should look something like this
 
