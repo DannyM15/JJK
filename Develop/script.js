@@ -1,52 +1,52 @@
-// Assignment Code
+// Assignment Code - Given
 var generateBtn = document.querySelector("#generate");
 
-// Define character sets based on selected criteria
-var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numericChars = "0123456789";
-var specialChars = "!@#$%^&()_+~`|}{[]:;?><,./-=";
+// Characters to be used in each variable
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "0123456789";
+var special = "!@#$%^&()_+~`|}{[]:;?><,./-=";
 
 function generatePassword() {
 
-  // Function to generate a random password
+  // Function to generate the password
   function generatePassword() {
-    // Prompt for the length of the password
+    // Ask how many characters the PW should be
     var passwordLength = prompt("Enter the length of the password (between 8 and 128 characters):");
 
-    // Validate the password length
+    // Check length to make sure its the correct amount
     if (passwordLength < 8 || passwordLength > 128) {
-      alert("Invalid password length. Please enter a number between 8 and 128.");
+      alert("Sorry! Your password must be between 8 and 128 characters.");
       return;
     }
 
-    // Prompt for character types to include
-    var includeLower = confirm("Include lowercase characters?");
-    var includeUpper = confirm("Include uppercase characters?");
-    var includeNumeric = confirm("Include numeric characters?");
-    var includeSpecial = confirm("Include special characters?");
+    // Boolean to confirm which character type is used in the PW
+    var includeLower = confirm("Would you like lowercase characters?");
+    var includeUpper = confirm("Would you like uppercase characters?");
+    var includeNumeric = confirm("Would you like numeric characters?");
+    var includeSpecial = confirm("Would you like special characters?");
 
-    // Validate that at least one character type is selected
+    // Confirm at least one choice was used
     if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
-      alert("Please select at least one character type.");
+      alert("Uh oh! please select at least 1 character type.");
       return;
     }
 
 
 
-    // Build the character set based on selected criteria
+    // If statements from the character type selection
     var characterSet = "";
     if (includeLower) {
-      characterSet += lowercaseChars;
+      characterSet += lowerCase;
     }
     if (includeUpper) {
-      characterSet += uppercaseChars;
+      characterSet += upperCase;
     }
     if (includeNumeric) {
-      characterSet += numericChars;
+      characterSet += numbers;
     }
     if (includeSpecial) {
-      characterSet += specialChars;
+      characterSet += special;
     }
 
     // Generate the password
@@ -56,20 +56,21 @@ function generatePassword() {
       password += characterSet[randomIndex];
     }
 
-    // Return the generated password
+    // Return the password
     return password;
   }
 
- // Call the generatePassword function
+ // Generate the created password 
   var password = generatePassword();
 
-  // Output the generated password
+  // Check and log the passwords generated
   console.log("Password: " + password);
 
+  // Display the password
   return password; 
 }
 
-// Write password to the #password input
+// Write password to the #password input - Given
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -78,5 +79,5 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
+// Add event listener to generate button - Given
 generateBtn.addEventListener("click", writePassword);
